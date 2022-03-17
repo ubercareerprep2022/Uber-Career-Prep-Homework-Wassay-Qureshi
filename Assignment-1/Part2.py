@@ -87,3 +87,5 @@ if __name__ == "__main__":
         pairsThatEqualSum([1, 2, 3], "3")
     except:
         ValueError
+        
+    assert(pairsThatEqualSum([], 700) == [])
