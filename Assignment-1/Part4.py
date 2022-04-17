@@ -168,6 +168,19 @@ class LinkedList:
  
         return False
 
+    def isPalindrome(self): #Bonus Function
+        if self.cycle_check() == True:
+            raise ValueError ("Error LL must not have a cycle to check isPalindrome")
+
+        values = []
+        pointer = self.head
+
+        while pointer is not None:
+            values.append(pointer.value)
+            pointer = pointer.next
+
+        return values == values[::-1]
+
 if __name__ == "__main__":
     #begin tests for LL
 
@@ -252,32 +265,44 @@ if __name__ == "__main__":
 
     cycleTesting(LL5)
 
-    #tests for edge cases
-
     LL6 = LinkedList()
 
+    def isPalindrome(LL6):
+        LL6.push(1)
+        LL6.push(2)
+        LL6.push(3)
+        LL6.push(2)
+        LL6.push(1)
+        assert(LL6.isPalindrome() == True)
+
+    isPalindrome(LL6)
+
+    #tests for edge cases
+
+    LL7 = LinkedList()
+
     try:
-        LL6.elementAt("hello")
+        LL7.elementAt("hello")
     except:
         ValueError
 
     try:
-        LL6.remove("hello")
+        LL7.remove("hello")
     except:
         ValueError
 
     try:
-        LL6.insert("hello")
+        LL7.insert("hello")
     except:
         ValueError
 
     try:
-        LL6.insert(-1000)
+        LL7.insert(-1000)
     except:
         IndexError
 
     try:
-        LL6.pop()
+        LL7.pop()
     except:
         IndexError
 
