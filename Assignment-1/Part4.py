@@ -188,17 +188,15 @@ if __name__ == "__main__":
     testPushBackAddsOneNode(LL1)
     testPopBackRemovesCorrectNode(LL1)
 
-    LL2 = LinkedList()
-    LL2_vals = [random.randint(-250, 250) for i in range(10)]
+    LL2_inputs = [1, 2, 3, 4, 5]
+    LL2 = LinkedList(LL2_inputs)
+    LL2_val = random.randint(-100, 100)
 
     def testEraseRemovesCorrectNode(LL2):
-        for i in range(len(LL2_vals)):
-            LL2.insert(i, LL2_vals[i])
-            assert(LL2.inList(LL2_vals[i]) == True)
-
-        for i in range(len(LL2_vals)):
-            LL2.remove(len(LL2_vals) - (i + 1))
-            assert(LL2.inList(LL2_vals[len(LL2_vals) - (i + 1)]) == False)
+        LL2.insert(0, LL2_val)
+        assert(LL2.inList(LL2_val))
+        LL2.remove(0)
+        assert(LL2.inList(LL2_val) == False)
             
     testEraseRemovesCorrectNode(LL2)
 
