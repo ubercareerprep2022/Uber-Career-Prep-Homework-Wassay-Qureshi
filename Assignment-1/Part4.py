@@ -155,7 +155,7 @@ class LinkedList:
         
         return False
 
-    def cycle_check(self):
+    def hasCycle(self):
         pointer = self.head
         visited = []
 
@@ -169,7 +169,7 @@ class LinkedList:
         return False
 
     def isPalindrome(self): #Bonus Function
-        if self.cycle_check() == True:
+        if self.hasCycle() == True:
             raise ValueError ("Error LL must not have a cycle to check isPalindrome")
 
         values = []
@@ -261,7 +261,7 @@ if __name__ == "__main__":
         LL5.push(15)
         LL5.push(10)
         LL5.head.next.next.next.next = LL5.head
-        assert(LL5.cycle_check() == True)
+        assert(LL5.hasCycle() == True)
 
     cycleTesting(LL5)
 
