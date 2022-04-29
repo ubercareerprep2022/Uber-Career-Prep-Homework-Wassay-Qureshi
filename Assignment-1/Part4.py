@@ -138,11 +138,14 @@ class LinkedList:
 
     def printList(self):
         node = self.head
+        values = []
 
         while node.next is not None:
-            print("{} ->".format(node.value), end = " ")
+            values.append(node.value)
             node = node.next
-        print(node.value)
+        values.append(node.value)
+
+        print(values)
 
     def inList(self, item): #extra function I defined to make testing easier
         pointer = self.head
