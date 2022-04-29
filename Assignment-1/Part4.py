@@ -187,6 +187,26 @@ class LinkedList:
 
         return values == values[::-1]
 
+    def getList(self): #extra function I built to help with testing for part 5 of the HW
+        node = self.head
+        values = []
+
+        if self.len == 0:
+            return values
+
+        while node.next is not None:
+            values.append(node.value)
+            node = node.next
+        values.append(node.value)
+
+        return values
+
+    def isReversed(self, other): #extra function I built to help with testing for part 5 of the HW
+        List1 = self.getList()
+        List2 = other.getList()
+
+        return List1 == List2[::-1]
+
 if __name__ == "__main__":
     #begin tests for LL
 
