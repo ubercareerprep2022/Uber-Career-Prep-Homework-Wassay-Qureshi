@@ -140,6 +140,9 @@ class LinkedList:
         node = self.head
         values = []
 
+        if self.len == 0:
+            return values
+
         while node.next is not None:
             values.append(node.value)
             node = node.next
