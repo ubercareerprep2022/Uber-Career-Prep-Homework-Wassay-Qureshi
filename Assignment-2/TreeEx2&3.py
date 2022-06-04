@@ -29,7 +29,20 @@ class Organization_Structure:
 
     #EX 3
     def printNumLevels(self):
-        max_level = 0
+        count = 0
+        Employees = Queue()
+        Employees.enqueue(self.root)
+
+        while Employees.size() > 0:
+            for i in range(Employees.size()):
+                Employee = Employees.dequeue()
+
+                for i in Employee.directReports:
+                    Employees.enqueue(i)
+
+            count += 1 
+            
+        print(count)
 
     
 if __name__ == "__main__":
@@ -49,4 +62,12 @@ if __name__ == "__main__":
 
     #Test for Ex 2 
     Company.printLevelByLevel()
+    Company.printNumLevels()
 
+    #testing for case of 1 node
+
+    CEO = Employee("A", "CEO")
+    Company2 = Organization_Structure(CEO)
+
+    Company2.printLevelByLevel()
+    Company2.printNumLevels()
