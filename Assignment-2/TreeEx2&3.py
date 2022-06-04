@@ -29,6 +29,8 @@ class Organization_Structure:
 
     #EX 3
     def printNumLevels(self):
+        #same structure as EX 2 as we're exploring every node of the tree but this time using a 
+        #counter variable to count every time we go into a child node
         count = 0
         Employees = Queue()
         Employees.enqueue(self.root)
