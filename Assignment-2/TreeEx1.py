@@ -68,5 +68,5 @@ if __name__ == "__main__":
     # 1
 
     printTree(tree3.root)
-    #successfully ptins 1 
+    #successfully prints 1 
 
