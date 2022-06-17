@@ -87,14 +87,42 @@ def printTree(root):
 
         if root.right:
             printTree(root.right)
-    
+
+
+class ListPhoneBook():
+    def __init__(self, name = None, number = None):
+        self.contacts = []
+        self.len = 0
+
+        if name and number:
+            self.insert(name, number)
+        
+        if name and not number:
+            raise ValueError ("The name and number field must either both be filled in or both be left empty")
+        
+    def size(self):
+        return self.len
+
+    def insert(self, name, number):
+        self.len += 1
+        self.contacts.append((name, number))
+
+    def find(self, name):
+        for contact in self.contacts:
+            if contact[0] == name:
+                return contact[1]
+
+        return -1
 
 if __name__ == "__main__":
     #test cases for a BST PhoneBook
     root1 = Node("AAB", 222222222)
     Book1 = BSTPhoneBook(root1)
+    assert(Book1.size() == 1)
     Book1.insert("AAA", 111111111)
+    assert(Book1.size() == 2)
     Book1.insert("AAC", 333333333)
+    assert(Book1.size() == 3)
 
 #      AAB
 #    /     \
@@ -124,3 +152,22 @@ if __name__ == "__main__":
         person = Node(999999999, 999999999)
     except:
         ValueError
+
+    #tests cases for the unsorted list phone book
+    Book2 = ListPhoneBook("AAA", 111111111)
+    assert(Book2.size() == 1)
+    Book2.insert("AAB", 222222222)
+    assert(Book2.size() == 2)
+    Book2.insert("AAC", 333333333)
+    assert(Book2.size() == 3)
+
+    assert(Book2.find("AAA") == 111111111)
+    assert(Book2.find("AAB") == 222222222)
+    assert(Book2.find("AAC") == 333333333)
+
+    try:
+        test = ListPhoneBook("AAA")
+    except:
+        ValueError
+
+
