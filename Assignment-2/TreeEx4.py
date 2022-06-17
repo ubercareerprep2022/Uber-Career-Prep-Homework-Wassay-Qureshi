@@ -39,16 +39,21 @@ class BST():
         self.root = root
         self.len = 0
 
+        if root:
+            self.len += 1
+
     def insert(self, number):
         if not isinstance(number, int):
             raise ValueError ("Error must only insert integers into the BST")
+        
+        self.len += 1
 
         if self.root:
             return self.root.insert_helper(number)
         else:
             self.root = Node(number)
         
-        self.len += 1
+
 
     def find(self, number):
         if not isinstance(number, int):
@@ -107,8 +112,8 @@ if __name__ == "__main__":
 
     printTree(BST2.root)
     print()
-    for i in range(1, BST1.len + 1):
-        assert(BST1.find(i))
+    for i in range(1, BST2.len + 1):
+        assert(BST2.find(i))
 
 #begin testing for edge cases
     try:
@@ -121,6 +126,8 @@ if __name__ == "__main__":
     except:
         ValueError
 
-
-
-
+#begin testing on an empty tree
+    BST3 = BST()
+    assert(BST3.find(1) == False)
+    BST3.insert(1)
+    assert(BST3.find(1))
