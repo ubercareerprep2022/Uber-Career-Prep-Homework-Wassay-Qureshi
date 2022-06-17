@@ -132,6 +132,7 @@ if __name__ == "__main__":
     assert(Book1.find("AAA") == 111111111)
     assert(Book1.find("AAB") == 222222222)
     assert(Book1.find("AAC") == 333333333)
+    assert(Book1.find("ZZZ") == -1)
 
     try:
         Book1.insert("ZZZ", "number")
@@ -164,6 +165,7 @@ if __name__ == "__main__":
     assert(Book2.find("AAA") == 111111111)
     assert(Book2.find("AAB") == 222222222)
     assert(Book2.find("AAC") == 333333333)
+    assert(Book2.find("ZZZ") == -1)
 
     try:
         test = ListPhoneBook("AAA")
