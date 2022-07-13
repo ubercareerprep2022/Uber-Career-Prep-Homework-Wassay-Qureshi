@@ -1,5 +1,4 @@
-from GraphEx1 import GraphNode, GraphWithAdjacencyList
-#imported graph class and node from graph ex 1 hw assignment
+from HW2_graphs_pt1 import GraphNode, GraphWithAdjacencyList
 
 #did implementations of graph class, one with the nodes and another with a graph with just numbers 
 class Graph():
@@ -38,16 +37,16 @@ class Graph():
             if current_node not in visited:
                 visited.add(current_node)
 
-                neighbours = self.nodes[current_node]
+                neighbors = self.nodes[current_node]
 
-                for neighbour in neighbours:
+                for neighbor in neighbors:
 
-                    if neighbour not in visited:
+                    if neighbor not in visited:
                         temp = current_path[:]
-                        temp.append(neighbour)
+                        temp.append(neighbor)
                         queue.append(temp)
                     
-                    if neighbour == node2:
+                    if neighbor == node2:
                         return len(temp) - 1
                         
 
@@ -81,16 +80,16 @@ class Graph2(GraphWithAdjacencyList):
             if current_node not in visited:
                 visited.add(current_node)
 
-                neighbours = self.AdjacencyList[current_node]
+                neighbors = self.AdjacencyList[current_node]
 
-                for neighbour in neighbours:
+                for neighbor in neighbors:
 
-                    if neighbour not in visited:
+                    if neighbor not in visited:
                         temp = current_path[:]
-                        temp.append(neighbour)
+                        temp.append(neighbor)
                         queue.append(temp)
                     
-                    if neighbour.data == node2:
+                    if neighbor.data == node2:
                         return len(temp) - 1
                         
                         
