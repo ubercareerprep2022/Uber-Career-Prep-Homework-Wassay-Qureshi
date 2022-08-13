@@ -107,7 +107,6 @@ def mergeSortedFiles(OutputFile, filesList, arrSize):
 
 
 
-
 if __name__ == "__main__":
     #Algorithm works for 1 million element array, runtime takes about 115 seconds to finish
     arraySize = 1000000
